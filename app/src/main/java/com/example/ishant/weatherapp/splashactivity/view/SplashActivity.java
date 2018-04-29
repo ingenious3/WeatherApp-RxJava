@@ -12,6 +12,7 @@ import com.example.ishant.weatherapp.data.ForecastResponse;
 import com.example.ishant.weatherapp.databinding.ActivitySplashBinding;
 import com.example.ishant.weatherapp.forecastactivity.view.ForecastActivity;
 import com.example.ishant.weatherapp.splashactivity.presenter.SplashPresenter;
+import com.example.ishant.weatherapp.utils.UiAnimationUtility;
 
 import javax.inject.Inject;
 
@@ -39,16 +40,20 @@ public class SplashActivity extends BaseActivity implements SplashView {
 
     @Override
     public void showError() {
+        binding.splashScreen.setBackgroundColor(getResources().getColor(R.color.theme_red));
         binding.imgvProgress.setVisibility(View.GONE);
         binding.errorTextview.setVisibility(View.VISIBLE);
         binding.retryButton.setVisibility(View.VISIBLE);
+        UiAnimationUtility.stopAnimation(binding.imgvProgress);
     }
 
     @Override
     public void showLoader() {
+        binding.splashScreen.setBackgroundColor(getResources().getColor(R.color.theme_background));
         binding.imgvProgress.setVisibility(View.VISIBLE);
         binding.errorTextview.setVisibility(View.GONE);
         binding.retryButton.setVisibility(View.GONE);
+        UiAnimationUtility.rotate(binding.imgvProgress,this);
     }
 
     @Override

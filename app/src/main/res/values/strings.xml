@@ -3,4 +3,6 @@
     <string name="error">Something went wrong at our end!</string>
     <string name="retry">Retry</string>
     <string name="degree">\u00B0</string>
+    <string name="roboto_thin">sans-serif-thin</string>
+    <string name="roboto_medium">sans-serif-medium</string>
 </resources>

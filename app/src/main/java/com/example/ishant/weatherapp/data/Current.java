@@ -281,12 +281,6 @@ public class Current implements Parcelable
     }
 
     @Override
-    public String toString()
-    {
-        return "ClassPojo [temp_f = "+temp_f+", condition = "+condition+", temp_c = "+temp_c+", wind_degree = "+wind_degree+", wind_dir = "+wind_dir+", wind_kph = "+wind_kph+", is_day = "+is_day+", pressure_in = "+pressure_in+", humidity = "+humidity+", vis_km = "+vis_km+", precip_mm = "+precip_mm+", wind_mph = "+wind_mph+", pressure_mb = "+pressure_mb+", feelslike_f = "+feelslike_f+", cloud = "+cloud+", last_updated_epoch = "+last_updated_epoch+", feelslike_c = "+feelslike_c+", last_updated = "+last_updated+", precip_in = "+precip_in+", vis_miles = "+vis_miles+"]";
-    }
-
-    @Override
     public int describeContents() {
         return 0;
     }
