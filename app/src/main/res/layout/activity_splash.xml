@@ -2,20 +2,58 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     >
-<RelativeLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".splashactivity.view.SplashActivity">
-    
-    <ImageView
-        android:layout_width="@dimen/splash_logo_width"
-        android:layout_height="@dimen/splash_logo_height"
-        android:src="@mipmap/ic_launcher_foreground"
-        android:scaleType="centerCrop"
-        android:layout_centerInParent="true"/>
 
-</RelativeLayout>
+    <data>
+
+        <variable
+            name="clickEvent"
+            type="com.example.ishant.weatherapp.splashactivity.view.SplashActivity" />
+    </data>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/theme_background"
+        >
+
+    <ImageView
+        android:id="@+id/imgv_progress"
+        android:layout_width="@dimen/view_96dp"
+        android:layout_height="@dimen/view_96dp"
+        android:src="@drawable/ic_loading"
+        android:stateListAnimator="@anim/anim_rotate"
+        android:layout_centerInParent="true"
+        />
+
+    <TextView
+        android:id="@+id/error_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_32dp"
+        android:layout_marginRight="@dimen/margin_32dp"
+        android:layout_centerInParent="true"
+        android:text="@string/error"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_56sp"
+        android:fontFamily="sans-serif-thin"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/retry_button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/view_32dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/margin_24dp"
+        android:background="@color/colorRetryBG"
+        android:text="@string/retry"
+        android:textAllCaps="true"
+        android:textColor="#ffffff"
+        android:visibility="gone"
+        android:onClick="@{(theView)-> clickEvent.retryButtonClick(theView)}"
+        android:layout_below="@id/error_textview"/>
+
+    </RelativeLayout>
 
 </layout>

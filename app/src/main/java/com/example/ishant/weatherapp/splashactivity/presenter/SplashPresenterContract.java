@@ -4,8 +4,6 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public interface SplashPresenterContract {
 
-  //  void fetchData();
-    void wait3seconds();
+    void fetchData();
     CompositeDisposable getDisposable();
-
 }

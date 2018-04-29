@@ -1,19 +1,46 @@
 package com.example.ishant.weatherapp.data;
 
-import com.google.gson.annotations.SerializedName;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-import java.util.ArrayList;
+public class Forecast implements Parcelable
+{
+    private ForecastDay[] forecastday;
 
-public class Forecast {
-
-    @SerializedName("forecastday")
-    private ArrayList<ForecastDay> forecastday;
-
-    public Forecast() {
-        forecastday = new ArrayList<>();
+    protected Forecast(Parcel in) {
+        forecastday = in.createTypedArray(ForecastDay.CREATOR);
     }
 
-    public ArrayList<ForecastDay> getForecastday() {
+    public static final Creator<Forecast> CREATOR = new Creator<Forecast>() {
+        @Override
+        public Forecast createFromParcel(Parcel in) {
+            return new Forecast(in);
+        }
+
+        @Override
+        public Forecast[] newArray(int size) {
+            return new Forecast[size];
+        }
+    };
+
+    public ForecastDay[] getForecastday ()
+    {
         return forecastday;
+    }
+
+    public void setForecastday (ForecastDay[] forecastday)
+    {
+        this.forecastday = forecastday;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedArray(forecastday, flags);
     }
 }

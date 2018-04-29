@@ -1,6 +1,5 @@
 package com.example.ishant.weatherapp;
 
-
 import android.app.Application;
 import android.support.v7.app.AppCompatActivity;
 

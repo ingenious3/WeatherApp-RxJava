@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.ishant.weatherapp.data.ForecastDay" />
+    </data>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_16sp"
+        android:text="@{data.date}"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@dimen/margin_12dp"
+        />
+
+    <ImageView
+        android:id="@+id/condition_image_weather"
+        android:layout_width="@dimen/view_32dp"
+        android:layout_height="@dimen/view_32dp"
+        android:layout_margin="@dimen/margin_12dp"
+        android:layout_gravity="center_vertical"
+        />
+
+    <TextView
+        android:id="@+id/condition_weather"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/margin_12dp"
+        android:textSize="@dimen/text_16sp"
+        android:text="@{data.day.condition.text}"
+        android:layout_gravity="center_vertical"
+        />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_16sp"
+        android:layout_gravity="center_vertical"
+        android:text="@{data.day.mintemp_c.concat(@string/degree)+`/`+ data.day.maxtemp_c.concat(@string/degree)}"
+        android:layout_margin="@dimen/margin_12dp"/>
+
+
+</LinearLayout>
+</layout>
