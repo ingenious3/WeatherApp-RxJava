@@ -2,15 +2,13 @@ package com.example.ishant.weatherapp;
 
 
 import android.app.Application;
+import android.support.v7.app.AppCompatActivity;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.example.ishant.weatherapp.daggerinjection.component.ApplicationComponent;
+import com.example.ishant.weatherapp.daggerinjection.component.DaggerApplicationComponent;
+import com.example.ishant.weatherapp.daggerinjection.modules.ApiModule;
 
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WeatherApplication extends Application {
 
@@ -19,42 +17,26 @@ public class WeatherApplication extends Application {
     private Retrofit retrofit;
 
     private static WeatherApplication weatherApplication;
+    ApplicationComponent applicationComponent;
 
     public static final String TAG = WeatherApplication.class.getSimpleName();
 
-    public synchronized static WeatherApplication getInstance() {
-        if (weatherApplication == null) {
-            weatherApplication = new WeatherApplication();
-        }
-        return weatherApplication;
+    public static WeatherApplication get(AppCompatActivity activity) {
+        return (WeatherApplication) activity.getApplication();
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        weatherApplication = this;
+        applicationComponent = DaggerApplicationComponent.builder()
+                .apiModule(new ApiModule(BASE_URL))
+                .build();
+        applicationComponent.inject(this);
     }
 
 
-    public Retrofit getRetrofit() {
-        if (retrofit == null) {
-
-            OkHttpClient client = new OkHttpClient.Builder()
-                    .retryOnConnectionFailure(true)
-                    .connectTimeout(10, TimeUnit.SECONDS)
-                    .build();
-
-            Gson gson = new GsonBuilder()
-                    .setLenient()
-                    .create();
-
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .client(client)
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .build();
-        }
-        return retrofit;
+    public ApplicationComponent getApplicationComponent() {
+        return applicationComponent;
     }
 
 
