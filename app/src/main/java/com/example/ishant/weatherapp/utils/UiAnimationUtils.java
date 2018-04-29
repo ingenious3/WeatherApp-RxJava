@@ -7,7 +7,8 @@ import android.view.animation.AnimationUtils;
 
 import com.example.ishant.weatherapp.R;
 
-public class UiAnimationUtility {
+public class UiAnimationUtils {
+
     public static void slideUp(View view, Context context) {
         view.setVisibility(View.VISIBLE);
         Animation slideUpAnimation = AnimationUtils.loadAnimation(context,

@@ -12,7 +12,7 @@ import com.example.ishant.weatherapp.data.ForecastResponse;
 import com.example.ishant.weatherapp.databinding.ActivitySplashBinding;
 import com.example.ishant.weatherapp.forecastactivity.view.ForecastActivity;
 import com.example.ishant.weatherapp.splashactivity.presenter.SplashPresenter;
-import com.example.ishant.weatherapp.utils.UiAnimationUtility;
+import com.example.ishant.weatherapp.utils.UiAnimationUtils;
 
 import javax.inject.Inject;
 
@@ -44,7 +44,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
         binding.imgvProgress.setVisibility(View.GONE);
         binding.errorTextview.setVisibility(View.VISIBLE);
         binding.retryButton.setVisibility(View.VISIBLE);
-        UiAnimationUtility.stopAnimation(binding.imgvProgress);
+        UiAnimationUtils.stopAnimation(binding.imgvProgress);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
         binding.imgvProgress.setVisibility(View.VISIBLE);
         binding.errorTextview.setVisibility(View.GONE);
         binding.retryButton.setVisibility(View.GONE);
-        UiAnimationUtility.rotate(binding.imgvProgress,this);
+        UiAnimationUtils.rotate(binding.imgvProgress,this);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
             startActivity(i);
             finish();
         } else
-            Log.v(TAG + "datafetch", "something went wrong");
+            Log.d(TAG + "datafetch", "something went wrong");
     }
 
 
@@ -72,7 +72,6 @@ public class SplashActivity extends BaseActivity implements SplashView {
     public void retryButtonClick(View v) {
         presenter.fetchData();
     }
-
 
     @Override
     protected void onDestroy() {

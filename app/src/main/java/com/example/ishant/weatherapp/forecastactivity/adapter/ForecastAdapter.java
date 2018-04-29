@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.example.ishant.weatherapp.data.ForecastDay;
 import com.example.ishant.weatherapp.data.ForecastResponse;
 import com.example.ishant.weatherapp.databinding.ListItemBinding;
-import com.example.ishant.weatherapp.utils.DataFormattingUtility;
+import com.example.ishant.weatherapp.utils.DataFormattingUtils;
 
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ViewHolder> {
 
@@ -21,8 +21,8 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ViewHo
     public ForecastAdapter(Context context, ForecastResponse forecastResponse) {
         this.context = context;
         this.forecastResponse = forecastResponse;
+        this.forecastResponse.getForecast().getForecastday().remove(0);
         inflater = LayoutInflater.from(context);
-
     }
 
     @NonNull
@@ -35,14 +35,13 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        ForecastDay data = forecastResponse.getForecast().getForecastday()[position];
-        holder.bind(DataFormattingUtility.DataFormat(data));
+        ForecastDay data = forecastResponse.getForecast().getForecastday().get(position);
+        holder.bind(DataFormattingUtils.DataFormat(data));
     }
     @Override
     public int getItemCount() {
-        return forecastResponse.getForecast().getForecastday().length;
+        return forecastResponse.getForecast().getForecastday().size();
     }
-
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -51,7 +50,6 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ViewHo
         ViewHolder(ListItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
-
         }
 
         void bind(ForecastDay item) {

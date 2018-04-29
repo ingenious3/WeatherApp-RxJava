@@ -4,8 +4,6 @@ import com.example.ishant.weatherapp.data.ForecastResponse;
 
 public interface SplashView {
 
-//    void launchForecastActivity();
-
     void showError();
 
     void showLoader();

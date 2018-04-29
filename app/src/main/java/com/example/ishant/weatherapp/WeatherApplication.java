@@ -38,7 +38,4 @@ public class WeatherApplication extends Application {
         return applicationComponent;
     }
 
-
-
-
 }

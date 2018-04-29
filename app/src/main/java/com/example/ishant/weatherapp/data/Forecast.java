@@ -3,12 +3,14 @@ package com.example.ishant.weatherapp.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
 public class Forecast implements Parcelable
 {
-    private ForecastDay[] forecastday;
+    private List<ForecastDay> forecastday;
 
     protected Forecast(Parcel in) {
-        forecastday = in.createTypedArray(ForecastDay.CREATOR);
+        forecastday = in.createTypedArrayList(ForecastDay.CREATOR);
     }
 
     public static final Creator<Forecast> CREATOR = new Creator<Forecast>() {
@@ -23,16 +25,17 @@ public class Forecast implements Parcelable
         }
     };
 
-    public ForecastDay[] getForecastday ()
-    {
+    public List<ForecastDay> getForecastday() {
         return forecastday;
     }
 
-    public void setForecastday (ForecastDay[] forecastday)
-    {
+    public void setForecastday(List<ForecastDay> forecastday) {
         this.forecastday = forecastday;
     }
 
+    public static Creator<Forecast> getCREATOR() {
+        return CREATOR;
+    }
 
     @Override
     public int describeContents() {
@@ -41,6 +44,6 @@ public class Forecast implements Parcelable
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeTypedArray(forecastday, flags);
+        dest.writeTypedList(forecastday);
     }
 }

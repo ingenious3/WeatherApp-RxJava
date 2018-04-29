@@ -102,7 +102,7 @@ public class Current implements Parcelable
 
     public String getTemp_c ()
     {
-        return temp_c;
+        return String.valueOf((int)Double.parseDouble(temp_c));
     }
 
     public void setTemp_c (String temp_c)

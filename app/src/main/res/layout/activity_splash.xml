@@ -10,7 +10,7 @@
             type="com.example.ishant.weatherapp.splashactivity.view.SplashActivity" />
     </data>
 
-    <RelativeLayout
+<RelativeLayout
         android:id="@+id/splashScreen"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -18,48 +18,48 @@
         android:background="@color/theme_background"
         >
 
-    <ImageView
-        android:id="@+id/imgv_progress"
-        android:layout_width="@dimen/view_96dp"
-        android:layout_height="@dimen/view_96dp"
-        android:src="@drawable/ic_loading"
-        android:stateListAnimator="@anim/anim_rotate"
-        android:layout_centerInParent="true"
-        />
+        <ImageView
+            android:id="@+id/imgv_progress"
+            android:layout_width="@dimen/view_96dp"
+            android:layout_height="@dimen/view_96dp"
+            android:src="@drawable/ic_loading"
+            android:stateListAnimator="@anim/anim_rotate"
+            android:layout_centerInParent="true"
+            />
 
-    <TextView
-        android:id="@+id/error_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_32dp"
-        android:layout_marginRight="@dimen/margin_32dp"
-        android:layout_centerInParent="true"
-        android:gravity="center_horizontal"
-        android:text="@string/error"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_54sp"
-        android:fontFamily="@string/roboto_thin"
-        android:visibility="gone"
-        />
+        <TextView
+            android:id="@+id/error_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_32dp"
+            android:layout_marginRight="@dimen/margin_32dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:text="@string/error"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_54sp"
+            android:fontFamily="@string/roboto_thin"
+            android:visibility="gone"
+            />
 
-    <Button
-        android:id="@+id/retry_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_44dp"
-        android:paddingLeft="@dimen/margin_24dp"
-        android:paddingRight="@dimen/margin_24dp"
-        android:background="@color/colorRetryBG"
-        android:layout_centerInParent="true"
-        android:text="@string/retry"
-        android:textAllCaps="true"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_20sp"
-        android:visibility="gone"
-        android:fontFamily="@string/roboto_medium"
-        android:onClick="@{(theView)-> clickEvent.retryButtonClick(theView)}"
-        android:layout_below="@id/error_textview"/>
+        <Button
+            android:id="@+id/retry_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_44dp"
+            android:paddingLeft="@dimen/margin_24dp"
+            android:paddingRight="@dimen/margin_24dp"
+            android:background="@color/colorRetryBG"
+            android:layout_centerInParent="true"
+            android:text="@string/retry"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_20sp"
+            android:visibility="gone"
+            android:fontFamily="@string/roboto_medium"
+            android:onClick="@{(theView)-> clickEvent.retryButtonClick(theView)}"
+            android:layout_below="@id/error_textview"/>
 
-    </RelativeLayout>
+</RelativeLayout>
 
 </layout>
