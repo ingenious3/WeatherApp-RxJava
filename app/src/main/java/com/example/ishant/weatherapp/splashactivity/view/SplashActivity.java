@@ -20,10 +20,10 @@ public class SplashActivity extends BaseActivity implements SplashView {
 
     private static final String TAG = SplashActivity.class.getSimpleName();
 
-    ActivitySplashBinding binding;
-
     @Inject
     SplashPresenter presenter;
+
+    ActivitySplashBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -49,9 +49,6 @@
                         android:layout_marginBottom="@dimen/margin_88dp"/>
         </LinearLayout>
 
-
-
-
         <android.support.v4.widget.NestedScrollView
             android:id="@+id/scroll"
             android:layout_width="match_parent"
